@@ -9,7 +9,5 @@ namespace GruppNrSexMail.Models
     {
         public int Id { get; set; }
         public string Mailadress { get; set; }
-
-        
     }
 }

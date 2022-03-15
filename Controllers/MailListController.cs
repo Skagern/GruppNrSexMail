@@ -11,23 +11,23 @@ namespace GruppNrSexMail.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MailListModelsController : ControllerBase
+    public class MailListController : ControllerBase
     {
         private readonly MailContext _context;
 
-        public MailListModelsController(MailContext context)
+        public MailListController(MailContext context)
         {
             _context = context;
         }
 
-        // GET: api/MailListModels
+        // GET: api/MailList
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MailListModel>>> GetMails()
         {
             return await _context.Mails.ToListAsync();
         }
 
-        // GET: api/MailListModels/5
+        // GET: api/MailList/5
         [HttpGet("{id}")]
         public async Task<ActionResult<MailListModel>> GetMailListModel(int id)
         {
@@ -41,7 +41,7 @@ namespace GruppNrSexMail.Controllers
             return mailListModel;
         }
 
-        // PUT: api/MailListModels/5
+        // PUT: api/MailList/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMailListModel(int id, MailListModel mailListModel)
@@ -72,7 +72,7 @@ namespace GruppNrSexMail.Controllers
             return NoContent();
         }
 
-        // POST: api/MailListModels
+        // POST: api/MailList
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<MailListModel>> PostMailListModel(MailListModel mailListModel)
@@ -83,7 +83,7 @@ namespace GruppNrSexMail.Controllers
             return CreatedAtAction("GetMailListModel", new { id = mailListModel.Id }, mailListModel);
         }
 
-        // DELETE: api/MailListModels/5
+        // DELETE: api/MailList/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMailListModel(int id)
         {
